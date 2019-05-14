@@ -1,11 +1,54 @@
-====
-salt
-====
+.. _readme:
 
-.. image:: https://travis-ci.com/saltstack-formulas/salt-formula.svg?branch=master
-    :target: https://travis-ci.com/saltstack-formulas
+salt-formula
+============
+
+|img_travis| |docs| |img_sr|
+
+.. |img_travis| image:: https://travis-ci.com/saltstack-formulas/salt-formula.svg?branch=master
+   :alt: Travis CI Build Status
+   :scale: 100%
+   :target: https://travis-ci.com/saltstack-formulas/salt-formula
+.. |docs| image:: https://readthedocs.org/projects/docs/badge/?version=latest
+   :alt: Documentation Status
+   :scale: 100%
+   :target: https://salt-formula.readthedocs.io/en/latest/?badge=latest
+.. |img_sr| image:: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
+   :alt: Semantic Release
+   :scale: 100%
+   :target: https://github.com/semantic-release/semantic-release
 
 Yes, Salt can Salt itself!
+
+.. contents:: **Table of Contents**
+
+General notes
+-------------
+
+See the full `SaltStack Formulas installation and usage instructions
+<https://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html>`_.
+
+If you are interested in writing or contributing to formulas, please pay attention to the `Writing Formula Section
+<https://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html#writing-formulas>`_.
+
+If you want to use this formula, please pay attention to the ``FORMULA`` file and/or ``git tag``,
+which contains the currently released version. This formula is versioned according to `Semantic Versioning <http://semver.org/>`_.
+
+See `Formula Versioning Section <https://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html#versioning>`_ for more details.
+
+Contributing to this repo
+-------------------------
+
+**Commit message formatting is significant!!**
+
+Please see :ref:`How to contribute <CONTRIBUTING>` for more details.
+
+Available states
+----------------
+
+.. contents::
+   :local:
+
 
 .. note::
 
@@ -20,77 +63,77 @@ Available states
     :local:
 
 ``salt.minion``
----------------
+^^^^^^^^^^^^^^^
 
 Install a minion
 
 ``salt.master``
----------------
+^^^^^^^^^^^^^^^
 
 Install a master.
 
 ``salt.syndic``
----------------
+^^^^^^^^^^^^^^^
 
 Install a syndic.
 
 ``salt.cloud``
----------------
+^^^^^^^^^^^^^^
 
 Install salt cloud.
 
 ``salt.ssh``
-------------
+^^^^^^^^^^^^
 
 Install salt-ssh with roster file.
 Configure pillar data under salt:ssh_roster to feed the template.
 
 ``salt.api``
-------------
+^^^^^^^^^^^^
 
 Install salt api
 Requisite: Configure salt-master with rest_cherrypy or rest_tornado.
 
 ``salt.standalone``
--------------------
+^^^^^^^^^^^^^^^^^^^
 
 Install a minion and configure it in `standalone mode
 <http://docs.saltstack.com/en/latest/topics/tutorials/standalone_minion.html>`_.
 
 ``salt.gitfs.dulwich``
-----------------------
+^^^^^^^^^^^^^^^^^^^^^^
 
 Install gitfs backend dulwich dependencies. Set ``salt:master:gitfs_provider: dulwich`` in your pillar.
 
 ``salt.gitfs.gitpython``
-----------------------
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 Install gitfs backend GitPython dependenciess. Set ``salt:master:gitfs_provider: gitpython`` in your pillar.
 
 ``salt.gitfs.keys``
-----------------------
+^^^^^^^^^^^^^^^^^^^
 
 Install ssh keys to be used by gitfs
 
 ``salt.gitfs.pygit2``
-----------------------
+^^^^^^^^^^^^^^^^^^^^^
 
 Install gitfs backend libgit2/pygit2 dependenciess. Set ``salt:master:gitfs_provider: pygit2`` in your pillar.
 For EL distributions, pygit is installed from packages from `EPEL <https://github.com/saltstack-formulas/epel-formula>`_.
 
 ``salt.pkgrepo``
-----------------
+^^^^^^^^^^^^^^^^
 
 Enable the official saltstack package repository in order to always
 benefit from the latest version. This state currently only works on Debian, Ubuntu, RHEL 6/7 and aims to implement the `installation recommendations of the official documentation <http://docs.saltstack.com/en/latest/topics/installation/index.html#platform-specific-installation-instructions>`_.
 
 ``salt.pkgrepo.absent``
------------------------
+^^^^^^^^^^^^^^^^^^^^^^^
 
 Undo the effects of ``salt.pkgrepo``.
 
 ``salt.formulas``
------------------
+^^^^^^^^^^^^^^^^^
 
 Clone selected `Salt formulas
 <http://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html>`_
@@ -121,6 +164,7 @@ that by default this state:
 If you configure the state to download the formulas from repositories that
 you control, then you can safely enable the
 ``salt_formulas:git_opts:default:update`` pillar setting to ``True``.
+
 
 ``Configuration``
 =================
