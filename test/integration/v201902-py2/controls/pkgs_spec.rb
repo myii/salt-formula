@@ -3,9 +3,9 @@
 version =
   case platform[:family]
   when 'redhat'
-    '2019.2.3-1.el7'
+    '2019.2.4-1.el7'
   when 'debian'
-    '2019.2.3+ds-1'
+    '2019.2.4+ds-1'
   end
 
 control 'salt packages' do
