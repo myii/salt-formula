@@ -1,13 +1,29 @@
 # frozen_string_literal: true
 
+# Prepare platform "finger"
+platform_finger = "#{platform[:name]}-#{platform[:release].split('.')[0]}"
+
 version =
   case platform[:family]
+  when 'debian'
+    '3000.2+ds-1'
+    # case platform_finger
+    # when 'debian-10'
+    # when 'debian-9'
+    # when 'debian-8'
+    # when 'ubuntu-18'
+    # when 'ubuntu-16'
+    # end
   when 'redhat'
-    case platform[:name]
-    when 'amazon'
-      '3000.2-1.amzn2'
-    when 'centos'
+    case platform_finger
+    when 'centos-8'
       '3000.2-1.el8'
+    when 'centos-7'
+      '3000.2-1.el7'
+    # when 'centos-6'
+    when 'amazon-2'
+      '3000.2-1.amzn2'
+    # when 'amazon-2018'
     end
   when 'fedora'
     # Issue in the upstream repo, should be `3000.2`
@@ -15,8 +31,6 @@ version =
   when 'suse'
     # Issue in the upstream repo, should be `3000.2`
     '2019.2.0-lp151.28.1'
-  when 'debian'
-    '3000.2+ds-1'
   end
 
 control 'salt packages' do
