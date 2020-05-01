@@ -3,4 +3,3 @@
 ---
 salt:
   release: '3000'
-  py_ver: 'py2'
