@@ -13,11 +13,13 @@ platforms:
 provisioner:
   salt_install: bootstrap
   salt_bootstrap_options: -pythonVersion 3 -version 3000.3
-  init_environment: >
-    C:\salt\salt-call --local state.single file.managed
-    C:\Users\kitchen\AppData\Local\Temp\kitchen\srv\salt\win\repo-ng\salt-minion-py3.sls
-    source=https://github.com/saltstack/salt-winrepo-ng/raw/master/salt-minion-py3.sls
-    skip_verify=True makedirs=True
+  # yamllint disable rule:line-length
+  init_environment: |
+    C:\salt\salt-call --local state.single file.managed `
+      C:\Users\kitchen\AppData\Local\Temp\kitchen\srv\salt\win\repo-ng\salt-minion-py3.sls `
+      source=https://github.com/saltstack/salt-winrepo-ng/raw/master/salt-minion-py3.sls `
+      skip_verify=True makedirs=True
+  # yamllint enable rule:line-length
 
 suites:
   - name: v3000-py3
