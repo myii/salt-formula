@@ -28,6 +28,8 @@ suites:
         base:
           '*':
             - salt._mapdata
+            - salt.pkgrepo
+            - salt.master
             - salt.minion
       pillars:
         top.sls:
