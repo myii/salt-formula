@@ -8,8 +8,6 @@ driver:
   privileged: true
   run_command: /lib/systemd/systemd
 
-# Make sure the platforms listed below match up with
-# the `env.matrix` instances defined in `.travis.yml`
 platforms:
   ## SALT `tiamat`
   - name: debian-10-tiamat-py3
@@ -285,6 +283,7 @@ platforms:
       image: saltimages/salt-3000.6-py2:arch-base-latest
       run_command: /usr/lib/systemd/systemd
 
+
 provisioner:
   name: salt_solo
   log_level: debug
@@ -320,6 +319,7 @@ suites:
       - amazonlinux-2-3002-2-py3
       - oraclelinux-8-3002-2-py3
       - oraclelinux-7-3002-2-py3
+      - arch-base-latest-3002-2-py3
       - gentoo-stage3-latest-3002-2-py3
       - gentoo-stage3-systemd-3002-2-py3
     provisioner:
@@ -358,6 +358,7 @@ suites:
       - amazonlinux-2-3001-4-py3
       - oraclelinux-8-3001-4-py3
       - oraclelinux-7-3001-4-py3
+      - arch-base-latest-3001-4-py3
       - gentoo-stage3-latest-3001-4-py3
       - gentoo-stage3-systemd-3001-4-py3
     provisioner:
@@ -418,6 +419,7 @@ suites:
     includes:
       - ubuntu-1804-3000-6-py2
       - ubuntu-1604-3000-6-py2
+      - arch-base-latest-3000-6-py2
     provisioner:
       state_top:
         base:
